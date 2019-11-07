@@ -24,10 +24,9 @@ class SearchBar extends Component {
         })
     }
 
-
     changeMovies = () => socket.emit("initial_movies");
 
-    componentDidMount () {
+    componentDidMount = async  () => {
         var state_current = this;
         socket.emit("initial_movies");
         socket.on("get_movies", state_current.getMovies);
