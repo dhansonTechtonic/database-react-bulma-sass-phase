@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import generic from '../assets/generic.jpg'
-import DB from '../MovieDB';
 import {socket} from './SearchBar';
 
 export default class EditMoviesModal extends Component {
@@ -9,13 +8,12 @@ export default class EditMoviesModal extends Component {
         super();
         this.state = {
             error: '',
-            notification: '',
         }
     }
 
     _handleImageUpload = () => {
-        const preview = document.querySelector('#movie-cover');
-        const file = document.querySelector('input[type=file]').files[0];
+        const preview = document.querySelector('#edit-movie-cover');
+        const file = document.querySelector('.edit-file').files[0];
         const reader = new FileReader();
 
         reader.addEventListener("load", () => {
@@ -30,10 +28,9 @@ export default class EditMoviesModal extends Component {
     closeModal = () => {
         const form = document.querySelector('.edit-form');
         form.reset();
-        document.getElementById('movie-cover').setAttribute('src', generic);
+        document.getElementById('edit-movie-cover').setAttribute('src', generic);
         const modal = document.querySelector('.edit-modal');
-        modal.removeAttribute('class');
-        modal.setAttribute('class', 'modal');
+        modal.setAttribute('class', 'modal edit-modal');
     }
 
     collectFormData = async () => {
@@ -53,10 +50,7 @@ export default class EditMoviesModal extends Component {
                 error: 'Please fill out all fields before submitting'
             })
         } else {
-            console.log(formData, this.props.id);
-            await DB.editMovie(formData, this.props.id);
-            formData['_id'] = this.props.id;
-            socket.emit("editMovie", formData);
+            socket.emit("editMovie", formData, this.props.id);
             this.closeModal();
         }
     }
@@ -135,7 +129,7 @@ export default class EditMoviesModal extends Component {
                                         <label className="label">Cover</label>
                                         <div className="file">
                                             <label className="file-label">
-                                                <input className="file-input" type="file" accept="image/*" name="edit-cover" onChange={this._handleImageUpload} required />
+                                                <input className="file-input edit-file" type="file" accept="image/*" name="edit-cover" onChange={this._handleImageUpload} required />
                                                 <span className="file-cta">
                                                     <span className="file-icon">
                                                         <i className="fas fa-upload"></i>

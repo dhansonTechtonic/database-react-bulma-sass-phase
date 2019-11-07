@@ -16,7 +16,6 @@ class SearchBar extends Component {
     }
 
     getMovies = movies => {
-        console.log(movies);
         let tempArr = [this.state.movies];
         tempArr = movies;
         this.setState({
@@ -39,7 +38,7 @@ class SearchBar extends Component {
     }
 
      openModal = () => {
-         const modal = document.getElementsByClassName('modal')[0];
+         const modal = document.querySelector('.add-modal');
         modal.classList.add('is-active');
     }
 

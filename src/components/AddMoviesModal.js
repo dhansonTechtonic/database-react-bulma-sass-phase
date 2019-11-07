@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import generic from '../assets/generic.jpg'
-import DB from '../MovieDB';
+import {socket} from './SearchBar';
 
 export default class AddMoviesModal extends Component {
 
@@ -13,8 +13,8 @@ export default class AddMoviesModal extends Component {
     }
 
      _handleImageUpload = () => {
-        const preview = document.querySelector('#movie-cover');
-        const file = document.querySelector('input[type=file]').files[0];
+        const preview = document.querySelector('#add-movie-cover');
+        const file = document.querySelector('.add-file').files[0];
         const reader = new FileReader();
 
         reader.addEventListener("load", () => {
@@ -29,10 +29,9 @@ export default class AddMoviesModal extends Component {
     closeModal = () => {
         const form = document.querySelector('.add-form');
         form.reset();
-        document.getElementById('movie-cover').setAttribute('src', generic);
-        const modal = document.getElementsByClassName('modal')[0];
-        modal.removeAttribute('class');
-        modal.setAttribute('class', 'modal');
+        document.getElementById('add-movie-cover').setAttribute('src', generic);
+        const modal = document.querySelector('.add-modal');
+        modal.setAttribute('class', 'modal add-modal');
     }
 
     collectFormData = async () => {
@@ -47,13 +46,13 @@ export default class AddMoviesModal extends Component {
             }
             formData[form[i].name] = form[i].value
         }
-        formData['cover'] = document.querySelector('#movie-cover').getAttribute('src');
+        formData['cover'] = document.querySelector('#add-movie-cover').getAttribute('src');
         if (invalidInput || invalidSelect || invalidTextArea) {
             this.setState({
                 error: 'Please fill out all fields before submitting'
             })
         }else{
-            DB.postMovie(formData);
+            socket.emit("addMovie", formData);
             this.closeModal();
         }
     }
@@ -61,7 +60,7 @@ export default class AddMoviesModal extends Component {
     render() {
         return (
             <div id="modal-root">
-                <div className="modal">
+                <div className="modal add-modal">
                     <div className="modal-background"></div>
                     <div className="modal-card">
                         <header className="modal-card-head">
@@ -132,7 +131,7 @@ export default class AddMoviesModal extends Component {
                                         <label className="label">Cover</label>
                                         <div className="file">
                                             <label className="file-label">
-                                                <input className="file-input" type="file" accept="image/*" name="cover" onChange={this._handleImageUpload} required/>
+                                                <input className="file-input add-file" type="file" accept="image/*" name="cover" onChange={this._handleImageUpload} required/>
                                                 <span className="file-cta">
                                                     <span className="file-icon">
                                                         <i className="fas fa-upload"></i>
@@ -142,7 +141,7 @@ export default class AddMoviesModal extends Component {
       </span>
                                                 </span>
                                             </label>
-                                            <img id="movie-cover" alt="movie cover" src={generic} width="150"
+                                            <img id="add-movie-cover" alt="movie cover" src={generic} width="150"
                                                 height="200" />
                                         </div>
                                     </div>

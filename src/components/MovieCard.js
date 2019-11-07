@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EditMoviesModal from './EditMoviesModal';
 import DB from '../MovieDB';
+import {socket} from './SearchBar';
 
 export default class MovieCard extends Component {
     constructor() {
@@ -16,7 +17,6 @@ export default class MovieCard extends Component {
         const form = document.querySelector('.edit-form');
         const movie = await DB.getMovieById(this.props.id);
         for (let i = 0; i < form.length -1; i++) {
-            console.log(form[i])
             form[i].value = movie[form[i].name.replace('edit-', '')];
         }
         var radios = [form[6], form[7]];
@@ -29,7 +29,7 @@ export default class MovieCard extends Component {
     }
 
     deleteMovie =()=> {
-        DB.deleteMovie(this.props.id);
+        socket.emit("deleteMovie", this.props.id);
     }
 
 
@@ -52,7 +52,7 @@ export default class MovieCard extends Component {
                     <div className="card">
                         <div className="card-image" onClick={this.handleClick}>
                             <figure className="image is-3by4">
-                                <img src={this.props.src} alt={this.props.alt} />
+                                <img src={this.props.src} alt={this.props.alt}/>
                             </figure>
                         </div>
                         <div className="card-content">
@@ -76,7 +76,7 @@ export default class MovieCard extends Component {
                             <button className="delete" aria-label="close" onClick={this.closeModal}></button>
                         </header>
                         <section className="modal-card-body" style={{display: 'flex'}}>
-                            <img src={this.props.src} alt={this.props.alt} style={{flexShrink: '0', marginRight: '1em'}}/>
+                            <img src={this.props.src} alt={this.props.alt} style={{marginRight: '1em'}}/>
                             <section>
                                 <p className="modal-card-title">{this.props.alt}</p>
                                 <p className="subtitle">{this.props.director}</p> 
