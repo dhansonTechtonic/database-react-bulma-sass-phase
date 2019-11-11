@@ -5,7 +5,7 @@
 
 - [ ] **Ask about learners' previous experience/familiarity with the topic at hand**
 
-What do you already know about Reach, Bulma, and Sass? What do you know about setting up a react environment?
+What do you already know about React, Bulma, and Sass? What do you know about setting up a react environment?
 
 - [ ] **State main goal of covering this topic**
 
@@ -22,11 +22,11 @@ No lesson prep materials needed here
 ## Overview
 - [ ] **Provide a general overview of the new topic/concept**
 
-Mongoose is elegant MongoDB object modeling for Node.js. MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. No database is more productive to use. 
+React is a JavaScript library for building user interfaces. Bulma is a free, open source CSS framework based on Flexbox and built with Sass. Sass is a style sheet language initially designed by Hampton Catlin and developed by Natalie Weizenbaum.
 
 - [ ] **Explain what students can expect during this learning session**
 
-Students can expect to be guided through building a backend using these technologies.
+Students can expect to be guided through building a front end for their database project using these technologies.
 
 - [ ] **Refer to the resources below to think through your lesson**
 
@@ -44,15 +44,15 @@ Students can expect to be guided through building a backend using these technolo
 
 - [ ] **Create and state the content learning objectives using a "Students will be able to... (SWBAT)" statement, Bloom's action verbs, and the forms and functions of language that students will use to display their learning**
 
-Students will be able to know how to build an Express app from the ground up with a MongoDB database.
+Students will be able to know how to build a React app from the ground up with Bulma and Sass for CSS.
 
 - [ ] **Give context around how mastery of this concept ties into the overarching learning goal from the review section**
 
-Mastery of this concept will give students a deeper understanding of how to build full stack applications and backends in NoSQL databases.
+Mastery of this concept will give students a deeper understanding of how to build full stack applications and front ends in React as well as how to use Sass and a CSS framework/library.
 
 - [ ] **Orient them as to why this learning is important and what it's benefits are for them**
 
-Learning how to build a full stack application is important because this is what the students will be doing as developers and they will be using mongoose and MongoDB frequently.
+Learning how to build a full stack application is important because this is what the students will be doing as developers and they will be using React, CSS Frameworks, and Sass frequently.
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ No lesson materials yet
 
 - [ ] **Describe the general concept, making links to what students have seen before**
 
-The general concept is setting up the environment for building a backend using Express, Node.js, mongoose, and MongoDB.
+The general concept is setting up the environment for building a front end using React, Bulma, and Sass.
 
 - [ ] **Discuss steps involved**
 
@@ -94,7 +94,7 @@ Walk through setting up the environment for the database project. More details w
 
 - [ ] **Group discussions - allow students to articulate what they saw you do**
 
-How did I get the connection string from MongoDB? Why did I need to npm install all these packages? Which packages did I install? What does babel do in this case? What does nodemon do?
+How did I create a React app? Why did I need to npm install all these packages? Which packages did I install? What does babel do in this case? What does nodemon do?
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ Help students step through the code to explain and comment what is going on in i
 
 - [ ] **Instructor acts as a facilitator**
 
-Have the students ask questions about what is going on in the files in this project. Go over .babelrc, .env, .gitignore, .jshintrc, app.js, and package.json
+Have the students ask questions about what is going on in the files in this project. Go over the .gitignore, .jshintrc, public folder, index.js, App.js, and package.json
 
 - [ ] **Have learners explain how and why using the language objectives as many times and ways as possible**
 
@@ -154,7 +154,7 @@ Your lesson prep materials go here
 ## Summary
 - [ ] **Highlight the key points of the lesson**
 
-What was difficult about building the backend? What do you need to set up in order to build your application? How do the different files interact with each other? What is going on in your code?
+What was difficult about building the front end? What do you need to set up in order to build your application? How do the different files interact with each other? What is going on in your code?
 
 - [ ] **Review the learning objectives with the class**
 
