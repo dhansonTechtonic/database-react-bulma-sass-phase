@@ -100,7 +100,7 @@ How did I create a React app? Why did I need to npm install all these packages? 
 
 Your lesson prep materials go here 
 
-[I do](https://docs.google.com/presentation/d/14pDVlCS9cZZM2JfzFXbyXFt9R6hwS6BpaA8ha1GsczM/edit?usp=sharing)
+[I do](https://docs.google.com/presentation/d/1iz5ORuItgpAlN1w3pSiWWMBEQUPN69g1Cm8rV2b2h_g/edit?usp=sharing)
 
 ------------------------------------------------------------------------------------------------------------------------------
 
